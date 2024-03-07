@@ -71,7 +71,6 @@ class BottomWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var model = context.watch<Model>();
     Map<String, String> maleChildCareLeave =
         context.select<Model, Map<String, String>>((model) => model.maleChildCareLeave);
     Map<String, String> femaleChildCareLeave =

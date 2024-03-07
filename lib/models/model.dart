@@ -39,7 +39,6 @@ class Model extends ChangeNotifier {
   set maleChildCareLeave(LinkedHashMap<String, String> newMaleChildCareLeave) {
     _maleChildCareLeave = newMaleChildCareLeave;
     notifyListeners();
-    print('maleChildCareLeave==============: $maleChildCareLeave');
   }
 
   LinkedHashMap<String, String> _femaleChildCareLeave = LinkedHashMap.from({
@@ -52,7 +51,6 @@ class Model extends ChangeNotifier {
   set femaleChildCareLeave(LinkedHashMap<String, String> newFemaleChildCareLeave) {
     _femaleChildCareLeave = newFemaleChildCareLeave;
     notifyListeners();
-    print('femaleChildCareLeave==============: $femaleChildCareLeave');
   }
 }
 

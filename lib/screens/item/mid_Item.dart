@@ -1,5 +1,4 @@
 import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_interview/screens/dialog/info_dialog.dart';
 import 'package:flutter_interview/screens/common_widget/widget_extension.dart';
@@ -46,7 +45,7 @@ class MidItemWidget extends StatelessWidget {
               child: Row(
                 children: [
                   Text(model.info[infoKey]! + infoUnits[infoKey]!, textAlign: TextAlign.center),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   const Icon(
                     color: Color(0xFF377DF7),
                     Icons.edit,

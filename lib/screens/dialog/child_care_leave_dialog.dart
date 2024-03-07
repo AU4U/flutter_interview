@@ -1,8 +1,8 @@
 import 'dart:collection';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_interview/screens/dialog/common_dialog.dart';
+import 'package:oktoast/oktoast.dart';
 import '../../models/model.dart';
 import '../common_widget/common_text_field.dart';
 
@@ -20,6 +20,11 @@ void showChildCareDialog(
     context,
     title: childCareLeaveKey,
     action: () {
+      if (controller1.text.isEmpty || controller2.text.isEmpty) {
+        // Toast 提示用户输入
+        showToast('输入内容错误，请重新输入');
+        return;
+      }
       LinkedHashMap<String, String> newMap = LinkedHashMap();
       childCareLeaveMap.forEach((key, value) {
         if (key == entry.key) {
@@ -39,29 +44,29 @@ void showChildCareDialog(
     content: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        SizedBox(height: 16),
-        Container(
+        const SizedBox(height: 16),
+        const SizedBox(
           width: double.infinity,
-          child: const Text(
+          child: Text(
             '職種',
             textAlign: TextAlign.left,
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         CommonTextField(
           controller: controller1,
         ),
-        SizedBox(height: 16),
-        Container(
+        const SizedBox(height: 16),
+        const SizedBox(
           width: double.infinity,
-          child: const Text('割合(単位：%)'),
+          child: Text('割合(単位：%)'),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         CommonTextField(
           controller: controller2,
           keyboardType: TextInputType.number,
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
       ],
     ),
   );

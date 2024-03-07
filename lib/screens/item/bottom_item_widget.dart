@@ -1,7 +1,6 @@
 import 'dart:collection';
 
 import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_interview/screens/common_widget/widget_extension.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +27,7 @@ class BottomItemWidget extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: Color(0xffE1E1E1),
+          color: const Color(0xffE1E1E1),
           width: 1,
         ),
       ),
@@ -47,34 +46,32 @@ class BottomItemWidget extends StatelessWidget {
           ),
           Expanded(
             flex: 8,
-            child: Container(
-              child: Column(
-                children: [
-                  SizedBox(height: 8),
-                  Column(
-                    children: List.generate(childCareLeaveMap.length, (index) {
-                      return Column(
-                        children: [
-                          BottomSubItem(
-                                  childCareLeaveKey: childCareLeaveKey,
-                                  entry: childCareLeaveMap.entries.elementAt(index))
-                              .wrapGestureDetector(
-                            onTap: () {
-                              showChildCareDialog(context,
-                                  childCareLeaveKey: childCareLeaveKey,
-                                  childCareLeaveMap: childCareLeaveMap,
-                                  entry: childCareLeaveMap.entries.elementAt(index),
-                                  model: model);
-                            },
-                          )
-                        ],
-                      );
-                    }),
-                  ),
-                  const SizedBox(height: 8),
-                  AddButton(childCareLeaveKey: childCareLeaveKey),
-                ],
-              ),
+            child: Column(
+              children: [
+                const SizedBox(height: 8),
+                Column(
+                  children: List.generate(childCareLeaveMap.length, (index) {
+                    return Column(
+                      children: [
+                        BottomSubItem(
+                                childCareLeaveKey: childCareLeaveKey,
+                                entry: childCareLeaveMap.entries.elementAt(index))
+                            .wrapGestureDetector(
+                          onTap: () {
+                            showChildCareDialog(context,
+                                childCareLeaveKey: childCareLeaveKey,
+                                childCareLeaveMap: childCareLeaveMap,
+                                entry: childCareLeaveMap.entries.elementAt(index),
+                                model: model);
+                          },
+                        )
+                      ],
+                    );
+                  }),
+                ),
+                const SizedBox(height: 8),
+                AddButton(childCareLeaveKey: childCareLeaveKey),
+              ],
             ),
           ),
         ],

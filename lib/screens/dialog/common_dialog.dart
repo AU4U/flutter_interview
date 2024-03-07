@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_interview/screens/common_widget/widget_extension.dart';
 
@@ -26,39 +25,36 @@ Future showCommonDialog(
           ),
           textAlign: TextAlign.center,
         )),
-        content: Container(
-
-          child: Wrap(
-            children: [
-              Column(
-                children: [
-                  Container(
-                    child: content,
+        content: Wrap(
+          children: [
+            Column(
+              children: [
+                Container(
+                  child: content,
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.only(left: 12, right: 12, top: 8, bottom: 8),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF377DF7),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  const SizedBox(
-                    height: 24,
+                  child: const Text(
+                    '确定',
+                    style: TextStyle(color: Colors.white),
+                    textAlign: TextAlign.center,
                   ),
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.only(left: 12, right: 12, top: 8, bottom: 8),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF377DF7),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Text(
-                      '确定',
-                      style: TextStyle(color: Colors.white),
-                      textAlign: TextAlign.center,
-                    ),
-                  ).wrapGestureDetector(
-                    onTap: () {
-                      action();
-                    },
-                  ),
-                ],
-              )
-            ],
-          ),
+                ).wrapGestureDetector(
+                  onTap: () {
+                    action();
+                  },
+                ),
+              ],
+            )
+          ],
         ),
       );
     },
